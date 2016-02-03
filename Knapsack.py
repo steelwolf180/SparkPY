@@ -99,14 +99,13 @@ def category_data(): #categories the supply list data
             cat5_value.append(temp_tv[i])
             cat5_weight.append(temp_wt[i])
 
-def knapSack(TW, weight, value, numbers):
-	temp = [int(i) for i in TW]
+def knapSack(temp_tw, weight, value, numbers):
 
-	K = [[0 for x in range(len(temp)+1)] for x in range(numbers+1)]
+	K = [[0 for x in range(temp_tw+1)] for x in range(numbers+1)]
 
 	# Build table K[][] in bottom up manner
 	for i in range(numbers+1):
-		for w in range(len(temp)+1):
+		for w in range(temp_tw+1):
 			if i==0 or w==0:
 				K[i][w] = 0
 			elif weight[i-1] <= w:
@@ -114,28 +113,31 @@ def knapSack(TW, weight, value, numbers):
 			else:
 				K[i][w] = K[i-1][w]
 
+	return K[numbers][temp_tw]
 
 def display_demand():
+    temp_tw = [int(i) for i in total_weight]
+
     for i in range(5):
         if i == 0:
             numbers = len(cat1_value)
-            print(knapSack(total_weight[0], cat1_weight, cat1_value, numbers))
+            print(knapSack(temp_tw[i], cat1_weight, cat1_value, numbers))
 
         elif i == 1:
             numbers = len(cat2_value)
-            print(knapSack(total_weight[1], cat2_weight, cat2_value, numbers))
+            print(knapSack(temp_tw[i], cat2_weight, cat2_value, numbers))
 
         elif i == 2:
             numbers = len(cat3_value)
-            print(knapSack(total_weight[2], cat3_weight, cat3_value, numbers))
+            print(knapSack(temp_tw[i], cat3_weight, cat3_value, numbers))
 
         elif i== 3:
             numbers = len(cat4_value)
-            print(knapSack(total_weight[3], cat4_weight, cat4_value, numbers))
+            print(knapSack(temp_tw[i], cat4_weight, cat4_value, numbers))
 
         elif i == 4:
             numbers = len(cat5_value)
-            print(knapSack(total_weight[4], cat5_weight, cat5_value, numbers))
+            print(knapSack(total_weight[i], cat5_weight, cat5_value, numbers))
 
 get_inputdata()
 category_data()
