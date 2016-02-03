@@ -1,4 +1,53 @@
 from collections import defaultdict
+import csv
+
+input_snum = []
+input_name = []
+input_MHS = []
+input_value = []
+input_weight=[]
+
+cat1Val = []
+cat2Val = []
+cat3Val = []
+cat4Val = []
+cat5Val = []
+
+cat1weight = []
+cat2weight = []
+cat3weight = []
+cat4weight = []
+cat5weight = []
+
+con_weight = []
+
+def get_inputdata():
+    read_confile()
+    read_nepalcsv()
+
+def read_confile():
+    conf_data = open('IDPcon.csv', "rt", encoding="utf-8")
+    with conf_data as f: #gets the list of tags from tag table
+        reader = csv.reader(f)
+        for val in reader:
+            con_weight.append(val)
+
+def read_nepalcsv():
+    # open csv file
+    Nepal_data = open('Nepal.csv', "rt", encoding="utf-8")
+
+    with Nepal_data as f: #gets the list of tags from tag table
+        reader = csv.reader(f)
+        for val in reader:
+            input_snum.append(val[0])
+            input_name.append(val[1])
+            input_MHS.append(val[2])
+            input_value.append(val[5])
+            input_weight.append(val[8])
+
+def categories_data():
+    if
+
 
 def knapSack(total_weight, weight, value, numbers):
 	K = [[0 for x in range(total_weight+1)] for x in range(numbers+1)]
@@ -32,7 +81,7 @@ cat5_weight = [32,11,21,35]
 cat5_value = [89,36,79,50]
 
 #various weight for various supply
-total_weight = [90,48,70,89,90]
+total_weight = [90,20,70,89,90]
 
 #data to HQ
 supply_value = {}
@@ -50,13 +99,12 @@ for i in range(5):
 		numbers = len(cat3_value)
 		print(knapSack(total_weight[i], cat3_weight, cat3_value, numbers))
 
-
 	elif i== 3:
 		numbers = len(cat4_value)
 		print(knapSack(total_weight[i], cat4_weight, cat4_value, numbers))
-
 
 	elif i == 4:
 		numbers = len(cat5_value)
 		print(knapSack(total_weight[i], cat5_weight, cat5_value, numbers))
 
+get_inputdata()

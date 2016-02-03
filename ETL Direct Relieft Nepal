@@ -1,0 +1,25 @@
+Header files
+Nepal.csv: S/N,Supply Name,Cat 1,Cat 2,Cat 3,Total Value,QTY,Price,Weight
+IDPcon.csv: cat1_weight,cat2_weight,cat3_weight,cat4_weight,cat5_weight
+
+Material Hierarchy Segment - Cat 1
+A - 20
+B - 16
+C - 12 
+D - 8 
+E - 4
+
+Material Hierarchy Family - Cat 2
+A - 10
+B - 8 
+C - 6 
+D - 4 
+E - 2
+
+
+Material Hierarchy Class - Cat 3
+ A - 5
+ B - 4 
+C - 3 
+D - 2
+ E - 1
