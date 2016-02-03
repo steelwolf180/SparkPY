@@ -18,8 +18,12 @@ E - 2
 
 
 Material Hierarchy Class - Cat 3
- A - 5
- B - 4 
+A - 5
+B - 4
 C - 3 
 D - 2
- E - 1
+E - 1
+
+Submit Data
+Based upon this Data format
+cat1, value1, weight1, cat2, value2, weight2,cat3, value3, weight3,cat4, value4, weight4,cat5, value5, weight5,

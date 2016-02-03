@@ -7,63 +7,25 @@ input_MHS = []
 input_value = []
 input_weight=[]
 
-cat1Val = []
-cat2Val = []
-cat3Val = []
-cat4Val = []
-cat5Val = []
+cat1_weight = []
+cat1_value = []
 
-cat1weight = []
-cat2weight = []
-cat3weight = []
-cat4weight = []
-cat5weight = []
+cat2_weight = []
+cat2_value = []
 
-con_weight = []
+cat3_weight = []
+cat3_value = []
 
-def get_inputdata():
-    read_confile()
-    read_nepalcsv()
+cat4_weight = []
+cat4_value = []
 
-def read_confile():
-    conf_data = open('IDPcon.csv', "rt", encoding="utf-8")
-    with conf_data as f: #gets the list of tags from tag table
-        reader = csv.reader(f)
-        for val in reader:
-            con_weight.append(val)
+cat5_weight = []
+cat5_value = []
 
-def read_nepalcsv():
-    # open csv file
-    Nepal_data = open('Nepal.csv', "rt", encoding="utf-8")
+#various weight for various supply
+total_weight = []
 
-    with Nepal_data as f: #gets the list of tags from tag table
-        reader = csv.reader(f)
-        for val in reader:
-            input_snum.append(val[0])
-            input_name.append(val[1])
-            input_MHS.append(val[2])
-            input_value.append(val[5])
-            input_weight.append(val[8])
-
-def categories_data():
-    if
-
-
-def knapSack(total_weight, weight, value, numbers):
-	K = [[0 for x in range(total_weight+1)] for x in range(numbers+1)]
-
-	# Build table K[][] in bottom up manner
-	for i in range(numbers+1):
-		for w in range(total_weight+1):
-			if i==0 or w==0:
-				K[i][w] = 0
-			elif weight[i-1] <= w:
-				K[i][w] = max(value[i-1] + K[i-1][w-weight[i-1]], K[i-1][w])
-			else:
-				K[i][w] = K[i-1][w]
-
-	return K[numbers][total_weight]
-
+'''
 #various category for supply
 cat1_weight = [11,1,42,21]
 cat1_value = [120,23,60,80]
@@ -82,29 +44,98 @@ cat5_value = [89,36,79,50]
 
 #various weight for various supply
 total_weight = [90,20,70,89,90]
+'''
 
 #data to HQ
 supply_value = {}
 
-for i in range(5):
-	if i == 0:
-		numbers = len(cat1_value)
-		print(knapSack(total_weight[i], cat1_weight, cat1_value, numbers))
+def get_inputdata(): #read from csv
+    read_confile()
+    read_nepalcsv()
 
-	elif i == 1:
-		numbers = len(cat2_value)
-		print(knapSack(total_weight[i], cat2_weight, cat2_value, numbers))
+def read_confile(): #read from IDP camp the weight for each category
+    conf_data = open('IDPcon.csv', "rt", encoding="utf-8")
+    with conf_data as f: #gets the list of weight from IDPcon.csv
+        reader = csv.reader(f)
+        for val in reader:
+            total_weight.append(val)
 
-	elif i == 2:
-		numbers = len(cat3_value)
-		print(knapSack(total_weight[i], cat3_weight, cat3_value, numbers))
+def read_nepalcsv(): #read from IDP camp supply list
+    # open csv file
+    Nepal_data = open('Nepal.csv', "rt", encoding="utf-8")
 
-	elif i== 3:
-		numbers = len(cat4_value)
-		print(knapSack(total_weight[i], cat4_weight, cat4_value, numbers))
+    with Nepal_data as f: #gets the list of supplies from IDP supply list
+        reader = csv.reader(f)
+        for val in reader:
+            input_snum.append(val[0])
+            input_name.append(val[1])
+            input_MHS.append(val[2])
+            input_value.append(val[5])
+            input_weight.append(val[8])
 
-	elif i == 4:
-		numbers = len(cat5_value)
-		print(knapSack(total_weight[i], cat5_weight, cat5_value, numbers))
+def category_data(): #categories the supply list data
+    temp_cat = [int(i) for i in input_MHS] #tempoarary category list of the MHS
+    temp_tv = [int(i) for i in input_value] #temporary total value for each item from supply list
+    temp_wt = [int(i) for i in input_weight] #temporary weight for each item from supply list
+
+    for i in range(len(input_snum)):
+        if temp_cat[i] == 20:
+            cat1_value.append(temp_tv[i])
+            cat1_weight.append(temp_wt[i])
+
+        elif temp_cat[i] == 16:
+            cat2_value.append(temp_tv[i])
+            cat2_weight.append(temp_wt[i])
+
+        elif temp_cat[i] == 12:
+            cat3_value.append(temp_tv[i])
+            cat3_weight.append(temp_wt[i])
+
+        elif temp_cat[i] == 8:
+            cat4_value.append(temp_tv[i])
+            cat4_weight.append(temp_wt[i])
+
+        elif temp_cat[i] == 4:
+            cat5_value.append(temp_tv[i])
+            cat5_weight.append(temp_wt[i])
+
+def knapSack(total_weight, weight, value, numbers):
+	K = [[0 for x in range(total_weight+1)] for x in range(numbers+1)]
+
+	# Build table K[][] in bottom up manner
+	for i in range(numbers+1):
+		for w in range(total_weight+1):
+			if i==0 or w==0:
+				K[i][w] = 0
+			elif weight[i-1] <= w:
+				K[i][w] = max(value[i-1] + K[i-1][w-weight[i-1]], K[i-1][w])
+			else:
+				K[i][w] = K[i-1][w]
+
+	return K[numbers][total_weight]
+
+def display_demand():
+    for i in range(5):
+        if i == 0:
+            numbers = len(cat1_value)
+            print("Demand for Category 1:" ,knapSack(total_weight[i], cat1_weight, cat1_value, numbers))
+
+        elif i == 1:
+            numbers = len(cat2_value)
+            print("Demand for Category 2:" ,knapSack(total_weight[i], cat2_weight, cat2_value, numbers))
+
+        elif i == 2:
+            numbers = len(cat3_value)
+            print("Demand for Category 3:" ,knapSack(total_weight[i], cat3_weight, cat3_value, numbers))
+
+        elif i== 3:
+            numbers = len(cat4_value)
+            print("Demand for Category 4:" ,knapSack(total_weight[i], cat4_weight, cat4_value, numbers))
+
+        elif i == 4:
+            numbers = len(cat5_value)
+            print("Demand for Category 5:" ,knapSack(total_weight[i], cat5_weight, cat5_value, numbers))
 
 get_inputdata()
+category_data()
+#display_demand()
