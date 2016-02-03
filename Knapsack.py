@@ -79,32 +79,34 @@ def category_data(): #categories the supply list data
     temp_wt = [int(i) for i in input_weight] #temporary weight for each item from supply list
 
     for i in range(len(input_snum)):
-        if temp_cat[i] == 20:
+        if temp_cat[i] == 20:#check if this is category A
             cat1_value.append(temp_tv[i])
             cat1_weight.append(temp_wt[i])
 
-        elif temp_cat[i] == 16:
+        elif temp_cat[i] == 16:#check if this is category B
             cat2_value.append(temp_tv[i])
             cat2_weight.append(temp_wt[i])
 
-        elif temp_cat[i] == 12:
+        elif temp_cat[i] == 12:#check if this is category C
             cat3_value.append(temp_tv[i])
             cat3_weight.append(temp_wt[i])
 
-        elif temp_cat[i] == 8:
+        elif temp_cat[i] == 8:#check if this is category D
             cat4_value.append(temp_tv[i])
             cat4_weight.append(temp_wt[i])
 
-        elif temp_cat[i] == 4:
+        elif temp_cat[i] == 4:#check if this is category E
             cat5_value.append(temp_tv[i])
             cat5_weight.append(temp_wt[i])
 
-def knapSack(total_weight, weight, value, numbers):
-	K = [[0 for x in range(total_weight+1)] for x in range(numbers+1)]
+def knapSack(TW, weight, value, numbers):
+	temp = [int(i) for i in TW]
+
+	K = [[0 for x in range(len(temp)+1)] for x in range(numbers+1)]
 
 	# Build table K[][] in bottom up manner
 	for i in range(numbers+1):
-		for w in range(total_weight+1):
+		for w in range(len(temp)+1):
 			if i==0 or w==0:
 				K[i][w] = 0
 			elif weight[i-1] <= w:
@@ -112,30 +114,29 @@ def knapSack(total_weight, weight, value, numbers):
 			else:
 				K[i][w] = K[i-1][w]
 
-	return K[numbers][total_weight]
 
 def display_demand():
     for i in range(5):
         if i == 0:
             numbers = len(cat1_value)
-            print("Demand for Category 1:" ,knapSack(total_weight[i], cat1_weight, cat1_value, numbers))
+            print(knapSack(total_weight[0], cat1_weight, cat1_value, numbers))
 
         elif i == 1:
             numbers = len(cat2_value)
-            print("Demand for Category 2:" ,knapSack(total_weight[i], cat2_weight, cat2_value, numbers))
+            print(knapSack(total_weight[1], cat2_weight, cat2_value, numbers))
 
         elif i == 2:
             numbers = len(cat3_value)
-            print("Demand for Category 3:" ,knapSack(total_weight[i], cat3_weight, cat3_value, numbers))
+            print(knapSack(total_weight[2], cat3_weight, cat3_value, numbers))
 
         elif i== 3:
             numbers = len(cat4_value)
-            print("Demand for Category 4:" ,knapSack(total_weight[i], cat4_weight, cat4_value, numbers))
+            print(knapSack(total_weight[3], cat4_weight, cat4_value, numbers))
 
         elif i == 4:
             numbers = len(cat5_value)
-            print("Demand for Category 5:" ,knapSack(total_weight[i], cat5_weight, cat5_value, numbers))
+            print(knapSack(total_weight[4], cat5_weight, cat5_value, numbers))
 
 get_inputdata()
 category_data()
-#display_demand()
+display_demand()
