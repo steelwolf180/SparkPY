@@ -105,13 +105,13 @@ def knapSack(temp_tw, weight, value, numbers):
 
     #Build table K[][] in bottom up manner
     for i in range(numbers+1):
-		for w in range(temp_tw+1):
-			if i==0 or w==0:
-				K[i][w] = 0
-			elif weight[i-1] <= w:
-				K[i][w] = max(value[i-1] + K[i-1][w-weight[i-1]], K[i-1][w])
-			else:
-				K[i][w] = K[i-1][w]
+        for w in range(temp_tw+1):
+            if i==0 or w==0:
+                K[i][w] = 0
+            elif weight[i-1] <= w:
+                K[i][w] = max(value[i-1] + K[i-1][w-weight[i-1]], K[i-1][w])
+            else:
+                K[i][w] = K[i-1][w]
 
     return K[numbers][temp_tw]
 
