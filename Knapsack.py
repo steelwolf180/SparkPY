@@ -24,27 +24,6 @@ cat5_value = []
 #various weight for various supply
 total_weight = []
 
-'''
-#various category for supply
-cat1_weight = [11,1,42,21]
-cat1_value = [120,23,60,80]
-
-cat2_weight = [20,5,13,30]
-cat2_value = [8,42,23,61]
-
-cat3_weight = [9,10,21,30]
-cat3_value = [18,27,8,12]
-
-cat4_weight = [12,9,32,18]
-cat4_value = [15,27,18,28]
-
-cat5_weight = [32,11,21,35]
-cat5_value = [89,36,79,50]
-
-#various weight for various supply
-total_weight = [90,20,70,89,90]
-'''
-
 #data to HQ
 supply_value = {}
 
