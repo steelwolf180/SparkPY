@@ -1,0 +1,112 @@
+"albendazole, chewable tablets 400 mg",tablet,Medicines,200,32,6400
+"aluminium hydroxide + magnesium hydroxide,",tablet,Medicines,1000,43,43000
+"amoxicillin, tablets 250 mg",tablet,Medicines,3000,21,63000
+"benzyl benzoate, lotion 25%","Bottle, 1 litre",Medicines,1,1000,1000
+"chlorhexidine gluconate, solution 5%","Bottle, 1 litre",Medicines,1,2000,2000
+"ferrous sulfate + folic acid, tablets 200 mg + 0.4 mg",tablet,Medicines,2000,42,84000
+"ibuprofen, scored tablets 400 mg",tablet,Medicines,2000,18,36000
+"miconazole, cream 2%",30 g,Medicines,20,230,4600
+ORS (oral rehydration salts),sachet for 1 litre,Medicines,200,300,60000
+"paracetamol, tablets 100 mg",tablet,Medicines,1000,100,100000
+"paracetamol, tablets 500 mg",tablet,Medicines,2000,4,8000
+"polyvidone iodine, solution 10% (equivalent to 1% available iodine)","bottle, 200ml",Medicines,12,89,1068
+"tetracycline, eye ointment 1% tube","Tube, 5 g",Medicines,50,90,4500
+"zinc sulfate, dispersible tablets 20 mg",tablet,Medicines,1000,9,9000
+"ketamine, injection 50 mg/ml ",10 ml/vial 25,Anaesthetics,25,300,7500
+"lidocaine, injection 1%",20 ml/vial 50,Anaesthetics,50,200,10000
+"morphine, injection 10 mg/ml3",1 ml/ampoule,Analgesics,50,180,9000
+"hydrocortisone, powder for injection 100 mg", vial,Anti-allergics,50,429,21450
+"prednisolone, tablets 5 mg",tablet,Anti-allergics,100,100,10000
+"diazepam, injection 5 mg/ml",2 ml/ampoule,Anticonvulsants/antiepileptics,200,10,2000
+"magnesium sulfate, injection 500 mg/ml",10 ml/ampoule,Anticonvulsants/antiepileptics,40,1240,49600
+"phenobarbital, tablets 50 mg",tablet,Anticonvulsants/antiepileptics,1000,23,23000
+"calcium gluconate, injection 100 mg/ml6",10 ml/ampoule,Antidotes,10,315,3150
+"naloxone, injection 0.4 mg/ml",1 ml/ampoule ,Antidotes,10,2690,26900
+"benzathine benzylpenicillin, injection 2.4 million IU/vial (long-acting penicillin)",vial,Anti-infective medicines,50,438,21900
+"benzylpenicillin, injection 5 million IU/vial",vial,Anti-infective medicines,250,160,40000
+"ceftriaxone, injection 1 g",vial,Anti-infective medicines,800,40,32000
+"clotrimazole, pessary 500 mg",pessary,Anti-infective medicines,100,89,8900
+"cloxacillin, capsules 250 mg",capsule,Anti-infective medicines,2000,35,70000
+"doxycycline, tablets 100 mg",tablet,Anti-infective medicines,3000,5,15000
+"metronidazole, tablets 500 mg",tablet,Anti-infective medicines,2000,12,24000
+"miconazole, muco-adhesive tablets 10 mg",tablet,Anti-infective medicines,350,50,17500
+"procaine benzylpenicillin, injection 3–4 million IU/vial",vial,Anti-infective medicines,200,120,24000
+"atenolol, tablets 50 mg",tablet,Cardiovascular medicines,1000,33,33000
+"hydralazine, powder for injection 20 mg",ampoule,Cardiovascular medicines,20,3290,65800
+"methyldopa, tablets 250 mg",tablet,Cardiovascular medicines,1000,12,12000
+"silver sulfadiazine, cream 1%","tube, 50 g",Dermatological medicines,30,468,14040
+"sodium dichloroisocyanurate (NaDCC), tablets 1.67 g",tablet,Disinfectants and antiseptics,12000,18,216000
+"furosemide, injection 10 mg/ml",2 ml/ampoule,Diuretics,20,1195,23900
+"hydrochlorothiazide, tablets 25 mg",tablet,Diuretics,200,11.5,2300
+"atropine, injection 1 mg/ml", 1 ml/ampoule ,Gastrointestinal medicines,50,210,10500
+"promethazine, tablets 25 mg",tablet ,Gastrointestinal medicines,500,32,16000
+"bag, urine, collecting, 2000 ml",unit,"Medical devices, renewable",10,400,4000
+"cannula, IV short, 18G (1.3 x 45 mm), sterile, single-use",unit,"Medical devices, renewable",100,170,17000
+"cannula, IV short, 22G (0.8 x 25 mm), sterile, single-use",unit,"Medical devices, renewable",50,385,19250
+"cannula, IV short, 24G (0.7 x 19 mm), sterile, single-use",unit,"Medical devices, renewable",50,310,15500
+"catheter, Foley, CH12, sterile, single-use",unit,"Medical devices, renewable",5,1880,9400
+"catheter, Foley, CH14, sterile, single-use",unit,"Medical devices, renewable",5,3290,16450
+"catheter, Foley, CH18, sterile, single-use",unit,"Medical devices, renewable",100,275,27500
+"clamp, umbilical, sterile",unit,"Medical devices, renewable",1500,44,66000
+"compress, gauze, 10 cm x 10 cm, non-sterile",unit,"Medical devices, renewable",2000,28,56000
+"compress, gauze, 10 cm x 10 cm, sterile",unit,"Medical devices, renewable",100,267,26700
+"gloves, examination, latex, large, single-use",unit,"Medical devices, renewable",100,780,78000
+"gloves, examination, latex, medium, single-use",unit,"Medical devices, renewable",100,230,23000
+"gloves, examination, latex, small, single-use",unit,"Medical devices, renewable",100,240,24000
+"gloves, surgical, 6.5, sterile, single-use, pair",unit,"Medical devices, renewable",50,260,13000
+"gloves, surgical, 7.5, sterile, single-use, pair",unit,"Medical devices, renewable",150,329,49350
+"gloves, surgical, 8.5, sterile, single-use, pair",unit,"Medical devices, renewable",50,324,16200
+"indicator, TST (time, steam, temperature) control spot",unit,"Medical devices, renewable",300,124,37200
+"masking tape, 2 cm x 50 m",roll,"Medical devices, renewable",1,50,50
+"needle, scalp vein, 21G (0.8 x 19 mm), sterile, single-use",unit,"Medical devices, renewable",100,23,2300
+"needle, scalp vein, 25G (0.5 x 19 mm), sterile, single-use",unit,"Medical devices, renewable",300,41,12300
+"needle, single-use, 19G (1.1 x 40 mm), sterile",unit,"Medical devices, renewable",2000,24,48000
+"needle, single-use, 21G (0.8 x 40 mm), sterile",unit,"Medical devices, renewable",1500,26,39000
+"needle, single-use, 23G (0.6 x 25 mm), sterile",unit,"Medical devices, renewable",1500,18,27000
+"needle, single-use, 25G (0.5 x 16 mm), sterile",unit,"Medical devices, renewable",100,31,3100
+"needle, spinal, 20G (0.9 x 90 mm), sterile, single-use",unit,"Medical devices, renewable",25,90,2250
+"needle, spinal, 22G (0.7 x 40 mm), sterile, single-use",unit,"Medical devices, renewable",25,120,3000
+"paper sheet, crepe, approximately 1 m x 1 m, for sterilization pack",sheet,"Medical devices, renewable",100,38,3800
+"razor, safety, single-use",unit,"Medical devices, renewable",100,45,4500
+"safety box for used syringes/needles, 5 litres",unit,"Medical devices, renewable",50,320,16000
+"scalpel blade, No. 22, sterile, single-use",unit,"Medical devices, renewable",100,230,23000
+"bandage, elastic, 7.5 cm x 5 m, roll",unit,"Medical devices, renewable",20,450,9000
+"bandage, gauze, 8 cm x 4 m, roll ",unit,"Medical devices, renewable",200,310,62000
+"compress, gauze, 10 cm x 10 cm, non-sterile ",unit,"Medical devices, renewable",500,30,15000
+"cotton wool, 500 g, roll, non-sterile",unit,"Medical devices, renewable",2,860,1720
+"gloves, examination, latex, medium, single-use",unit,"Medical devices, renewable",100,41,4100
+"soap, toilet, bar, approximately 110 g, wrapped",unit,"Medical devices, renewable",10,440,4400
+"tape, adhesive, zinc oxide, 2.5 cm x 5 m",unit,"Medical devices, renewable",30,90,2700
+"Interagency Emergency Health Kit 2011, English version",unit,Guidelines for IHEK 2011 users,2,1000,2000
+"Interagency Emergency Health Kit 2011, French version",unit,Guidelines for IHEK 2011 users,2,390,780
+"Interagency Emergency Health Kit 2011, Spanish version",unit,Guidelines for IHEK 2011 users,2,400,800
+"apron, protection, plastic, single-use",unit,"Medical devices, equipment",100,31,3100
+"basin, kidney, stainless steel, 825 ml",unit,"Medical devices, equipment",2,5000,10000
+"bowl, stainless steel, 180 ml",unit,"Medical devices, equipment",2,6800,13600
+"brush, hand, scrubbing, plastic",unit,"Medical devices, equipment",2,2990,5980
+"drawsheet, plastic, 90 cm x 180 cm",unit,"Medical devices, equipment",2,2455,4910
+"drum, sterilizing, approximately 150 mm x 150 mm",unit,"Medical devices, equipment",2,3590,7180
+"filter, drinking, candle, 10-80 litre per day",unit,"Medical devices, equipment",3,3490,10470
+"forceps, artery, Kocher, 140 mm, straight",unit,"Medical devices, equipment",2,5800,11600
+"otoscope set, cased",unit,"Medical devices, equipment",2,2590,5180
+"scale, electronic, mother-and-child, 150 kg x 100 g",unit,"Medical devices, equipment",1,5900,5900
+"scale, infant spring (only), 25 kg x 100 g",unit,"Medical devices, equipment",3,4000,12000
+"basin, kidney, stainless steel, 825 ml ",unit,"Medical devices, equipment",1,3690,3690
+"bottle, plastic, 250 ml, wash bottle ",unit,"Medical devices, equipment",1,900,900
+"bottle, plastic, 1 litre, with screw cap ",unit,"Medical devices, equipment",1,580,580
+"bowl, stainless steel, 180 ml unit 1",unit,"Medical devices, equipment",1,470,470
+"brush, hand, scrubbing, plastic ",unit,"Medical devices, equipment",1,700,700
+"drum, sterilizing, approximately 150 mm x 150 mm",unit,"Medical devices, equipment",1,670,670
+"forceps, artery, Kocher, 140 mm, straight ",unit,"Medical devices, equipment",1,425,425
+"pail, with water scoop, handle, polyethylene, 10 litre or 15 litre",unit,"Medical devices, equipment",1,890,890
+"scissors, Deaver, 140 mm, straight, sharp/blunt ",unit,"Medical devices, equipment",1,530,530
+"surgical instruments, dressing set3",unit,"Medical devices, equipment",1,900,900
+"thermometer, clinical, digital, 32–43° Celsius ",unit,"Medical devices, equipment",1,490,490
+"tray, dressing, stainless steel, 300 mm x 200 mm x 30 mm ",unit,"Medical devices, equipment",1,322,322
+"water container, PVC/PE, collapsible, 10 litre or 15 litre",unit,"Medical devices, equipment",1,500,500
+"ook, exercise, A4 size, 100 pages, hard cover1 ",unit,Stationary,4,320,1280
+"envelope, plastic, 10 cm x 15 cm",unit,Stationary,sa,50,#VALUE!
+health card2,unit,Stationary,500,2,1000
+"pad, note, plain, A6 size, 100 sheets",unit,Stationary,10,128,1280
+"pen, ball-point, blue",unit,Stationary,10,300,3000
+"plastic bag, for health card, 11 cm x 25 cm, snap-lock fastening ",unit,Stationary,500,20,10000
