@@ -37,15 +37,19 @@ def read_confile(): #read from IDP camp the weight for each category
         reader = csv.reader(f)
 
         for val in reader:
-            total_weight.append(int(val[0]))
             total_weight.append(int(val[1]))
-            total_weight.append(int(val[2]))
             total_weight.append(int(val[3]))
-            total_weight.append(int(val[4]))
+            total_weight.append(int(val[5]))
+            total_weight.append(int(val[7]))
+            total_weight.append(int(val[9]))
+            total_weight.append(int(val[11]))
+            total_weight.append(int(val[13]))
+            total_weight.append(int(val[15]))
+            total_weight.append(int(val[17]))
 
 def read_nepalcsv(): #read from IDP camp supply list
     # open csv file
-    Nepal_data = open('Nepal.csv', "rt", encoding="utf-8")
+    Nepal_data = open('SupplyKit.csv', "rt", encoding="utf-8")
 
     with Nepal_data as f: #gets the list of supplies from IDP supply list
         reader = csv.reader(f)

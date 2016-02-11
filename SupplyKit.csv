@@ -77,9 +77,9 @@ ORS (oral rehydration salts),sachet for 1 litre,Medicines,200,300,60000
 "gloves, examination, latex, medium, single-use",unit,"Medical devices, renewable",100,41,4100
 "soap, toilet, bar, approximately 110 g, wrapped",unit,"Medical devices, renewable",10,440,4400
 "tape, adhesive, zinc oxide, 2.5 cm x 5 m",unit,"Medical devices, renewable",30,90,2700
-"Interagency Emergency Health Kit 2011, English version",unit,Guidelines for IHEK 2011 users,2,1000,2000
-"Interagency Emergency Health Kit 2011, French version",unit,Guidelines for IHEK 2011 users,2,390,780
-"Interagency Emergency Health Kit 2011, Spanish version",unit,Guidelines for IHEK 2011 users,2,400,800
+"Interagency Emergency Health Kit 2011, English version",unit,Guidelines for IHEK 2011 users,2,550,1100
+"Interagency Emergency Health Kit 2011, French version",unit,Guidelines for IHEK 2011 users,2,500,1100
+"Interagency Emergency Health Kit 2011, Spanish version",unit,Guidelines for IHEK 2011 users,2,450,900
 "apron, protection, plastic, single-use",unit,"Medical devices, equipment",100,31,3100
 "basin, kidney, stainless steel, 825 ml",unit,"Medical devices, equipment",2,5000,10000
 "bowl, stainless steel, 180 ml",unit,"Medical devices, equipment",2,6800,13600
@@ -105,7 +105,7 @@ ORS (oral rehydration salts),sachet for 1 litre,Medicines,200,300,60000
 "tray, dressing, stainless steel, 300 mm x 200 mm x 30 mm ",unit,"Medical devices, equipment",1,322,322
 "water container, PVC/PE, collapsible, 10 litre or 15 litre",unit,"Medical devices, equipment",1,500,500
 "ook, exercise, A4 size, 100 pages, hard cover1 ",unit,Stationary,4,320,1280
-"envelope, plastic, 10 cm x 15 cm",unit,Stationary,sa,50,#VALUE!
+"envelope, plastic, 10 cm x 15 cm",unit,Stationary,2000,50,100000
 health card2,unit,Stationary,500,2,1000
 "pad, note, plain, A6 size, 100 sheets",unit,Stationary,10,128,1280
 "pen, ball-point, blue",unit,Stationary,10,300,3000
