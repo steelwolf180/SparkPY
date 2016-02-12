@@ -53,26 +53,6 @@ def read_supplykitcsv():  # read from IDP camp supply list
 
 def category_data(): #categories the supply list data
 
-    for i in range(len(input_snum)):
-        if input_category[i] == 20:  #check if this is category A
-            cat1_value.append(input_value[i])
-            cat1_weight.append(input_weight[i])
-
-        elif input_category[i] == 16:  #check if this is category B
-            cat2_value.append(input_value[i])
-            cat2_weight.append(input_weight[i])
-
-        elif input_category[i] == 12:  #check if this is category C
-            cat3_value.append(input_value[i])
-            cat3_weight.append(input_weight[i])
-
-        elif input_category[i] == 8:  #check if this is category D
-            cat4_value.append(input_value[i])
-            cat4_weight.append(input_weight[i])
-
-        elif input_category[i] == 4:  #check if this is category E
-            cat5_value.append(input_value[i])
-            cat5_weight.append(input_weight[i])
 
 def knapSack(temp_tw, weight, value, numbers):
     K = [[0 for x in range(temp_tw+1)] for x in range(numbers+1)]
