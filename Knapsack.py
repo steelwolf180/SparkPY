@@ -12,12 +12,22 @@ input_total_value = []
 config_category = {}
 
 # store input data to each individual category
-Medication = {}
-Anaesthetics = {}
-Analgesics = {}
-Anti_allergics = {}
-Anticonvulsants = {}
-
+medicines = {}
+anaesthetics = {}
+analgesics = {}
+anti_allergics = {}
+anticonvulsants = {}
+antidotes = {}
+anti_infective = {}
+cardiovascular = {}
+dermatological = {}
+disinfectants_and_antiseptics = {}
+diuretics = {}
+gastrointestinal = {}
+renewable_medical_device = {}
+guidelines = {}
+equipment_medical_device = {}
+stationary = {}
 
 #various weight for various supply
 total_weight = []
@@ -25,11 +35,15 @@ total_weight = []
 #data to HQ
 supply_value = {}
 
-def get_inputdata(): #read from csv
+
+# get data from csv files
+def get_inputdata():
     read_confile()
     read_supplykitcsv()
 
-def read_confile(): #read from IDP camp the weight for each category
+
+# read from IDP camp the weight for each category
+def read_confile():
     conf_data = open('IDPcon.csv', "rt", encoding="utf-8")
     with conf_data as f: #gets the list of weight from IDPcon.csv
         reader = csv.reader(f)
@@ -38,7 +52,8 @@ def read_confile(): #read from IDP camp the weight for each category
             config_category[str(val[0])] = int(val[1])
 
 
-def read_supplykitcsv():  # read from IDP camp supply list
+# read from IDP camp supply list
+def read_supplykitcsv():
     # open csv file
     supply = open('SupplyKit.csv', "rt", encoding="utf-8")
 
@@ -53,13 +68,59 @@ def read_supplykitcsv():  # read from IDP camp supply list
             input_total_value.append(float(val[5]))
 
 
-'''
-def category_data(): #categories the supply list data
-    for cat in config_category:
-        for val in range(len(input_category)):
-            if input_category[val] == cat:
-'''
+# categories the supply list data
+def category_data():
+    for val in range(len(input_category)):
+        if input_category[val] == "Medicines":
+            medicines[input_name[val]] = (input_weight[val], input_valPerQty[val])
 
+        elif input_category[val] == "Anaesthetics":
+            anaesthetics[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Analgesics":
+            analgesics[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Anti-allergics":
+            anti_allergics[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Anticonvulsants/antiepileptics":
+            anticonvulsants[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Antidotes":
+            antidotes[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Anti-infective medicines":
+            anti_infective[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Cardiovascular medicines":
+            cardiovascular[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Dermatological medicines":
+            dermatological[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Disinfectants and antiseptics":
+            disinfectants_and_antiseptics[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Diuretics":
+            diuretics[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Gastrointestinal medicines":
+            gastrointestinal[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Medical devices, renewable":
+            renewable_medical_device[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Guidelines for IHEK 2011 users":
+            guidelines[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Medical devices, equipment":
+            equipment_medical_device[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+        elif input_category[val] == "Stationary":
+            stationary[input_name[val]] = (input_weight[val], input_valPerQty[val])
+
+
+#knapsack algo
 def knapSack(temp_tw, weight, value, numbers):
     K = [[0 for x in range(temp_tw+1)] for x in range(numbers+1)]
 
@@ -75,6 +136,8 @@ def knapSack(temp_tw, weight, value, numbers):
 
     return K[numbers][temp_tw]
 
+
+#displays demand for each category of the supply list
 def display_demand():
 
     for i in range(5):
@@ -99,5 +162,5 @@ def display_demand():
             print("Category E:",knapSack(total_weight[i], cat5_weight, cat5_value, numbers))
 
 get_inputdata()
-#category_data()
+category_data()
 #display_demand()
