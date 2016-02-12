@@ -52,7 +52,7 @@ def read_supplykitcsv():
     with supply as f:  #gets the list of supplies from IDP supply list
         reader = csv.reader(f)
         for val in reader:
-            input_data[str(val[0])] = (str(val[1]), str(val[2]), float(val[3]), float(val[4]), float(val[5]))
+            input_data[str(val[0])] = (str(val[1]), str(val[2]), int(val[3]), float(val[4]), int(val[5]))
 
 
 # categories the supply list data
@@ -130,10 +130,11 @@ def knapSack(temp_tw, weight, value, numbers):
 
 #displays demand for each category of the supply list
 def display_demand():
-    for i in range(len(input_category)):
-        if i == 0:
+    for i in input_category:
+        if i == "Medicines":
             numbers = len(medicines)
-            print(input_category[i], knapSack(input_category[i][0], cat1_weight, cat1_value, numbers))
+            for j in medicines:
+                print("Category " + i + ":", knapSack(input_category[i], medicines[j][1], medicines[j][3], numbers))
 
 
 '''
