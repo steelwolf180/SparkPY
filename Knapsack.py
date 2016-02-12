@@ -1,25 +1,14 @@
 import csv
 
-input_snum = []
 input_name = []
-input_MHS = []
-input_value = []
-input_weight=[]
+input_unit = []
+input_category = []
+input_weight = []
+input_valPerQty = []
+input_total_value = []
 
-cat1_weight = []
-cat1_value = []
+config_category = {}
 
-cat2_weight = []
-cat2_value = []
-
-cat3_weight = []
-cat3_value = []
-
-cat4_weight = []
-cat4_value = []
-
-cat5_weight = []
-cat5_value = []
 
 #various weight for various supply
 total_weight = []
@@ -29,7 +18,7 @@ supply_value = {}
 
 def get_inputdata(): #read from csv
     read_confile()
-    read_nepalcsv()
+    read_supplykitcsv()
 
 def read_confile(): #read from IDP camp the weight for each category
     conf_data = open('IDPcon.csv', "rt", encoding="utf-8")
@@ -37,49 +26,51 @@ def read_confile(): #read from IDP camp the weight for each category
         reader = csv.reader(f)
 
         for val in reader:
-            total_weight.append(int(val[1]))
-            total_weight.append(int(val[3]))
-            total_weight.append(int(val[5]))
-            total_weight.append(int(val[7]))
-            total_weight.append(int(val[9]))
-            total_weight.append(int(val[11]))
-            total_weight.append(int(val[13]))
-            total_weight.append(int(val[15]))
-            total_weight.append(int(val[17]))
+            config_category[str(val[0])] = int(val[1])
+            config_category[str(val[2])] = int(val[3])
+            config_category[str(val[4])] = int(val[5])
+            config_category[str(val[6])] = int(val[7])
+            config_category[str(val[8])] = int(val[9])
+            config_category[str(val[10])] = int(val[11])
+            config_category[str(val[12])] = int(val[13])
+            config_category[str(val[14])] = int(val[15])
+            config_category[str(val[16])] = int(val[17])
 
-def read_nepalcsv(): #read from IDP camp supply list
+
+def read_supplykitcsv():  # read from IDP camp supply list
     # open csv file
-    Nepal_data = open('SupplyKit.csv', "rt", encoding="utf-8")
+    supply = open('SupplyKit.csv', "rt", encoding="utf-8")
 
-    with Nepal_data as f: #gets the list of supplies from IDP supply list
+    with supply as f:  #gets the list of supplies from IDP supply list
         reader = csv.reader(f)
         for val in reader:
-            input_snum.append(int(val[0]))
-            input_name.append(val[1])
-            input_MHS.append(int(val[2]))
-            input_value.append(int(val[5]))
-            input_weight.append(int(val[8]))
+            input_name.append(str(val[0]))
+            input_unit.append(str(val[1]))
+            input_category.append(str(val[2]))
+            input_weight.append(float(val[3]))
+            input_valPerQty.append(float(val[4]))
+            input_total_value.append(float(val[5]))
 
 def category_data(): #categories the supply list data
 
     for i in range(len(input_snum)):
-        if input_MHS[i] == 20:#check if this is category A
+        if input_category[i] == 20:  #check if this is category A
             cat1_value.append(input_value[i])
             cat1_weight.append(input_weight[i])
 
-        elif input_MHS[i] == 16:#check if this is category B
+        elif input_category[i] == 16:  #check if this is category B
             cat2_value.append(input_value[i])
             cat2_weight.append(input_weight[i])
 
-        elif input_MHS[i] == 12:#check if this is category C
+        elif input_category[i] == 12:  #check if this is category C
             cat3_value.append(input_value[i])
             cat3_weight.append(input_weight[i])
 
-        elif input_MHS[i] == 8:#check if this is category D
+        elif input_category[i] == 8:  #check if this is category D
             cat4_value.append(input_value[i])
             cat4_weight.append(input_weight[i])
 
-        elif input_MHS[i] == 4:#check if this is category E
+        elif input_category[i] == 4:  #check if this is category E
             cat5_value.append(input_value[i])
             cat5_weight.append(input_weight[i])
 
@@ -99,7 +90,6 @@ def knapSack(temp_tw, weight, value, numbers):
     return K[numbers][temp_tw]
 
 def display_demand():
-
 
     for i in range(5):
         if i == 0:
@@ -123,5 +113,5 @@ def display_demand():
             print("Category E:",knapSack(total_weight[i], cat5_weight, cat5_value, numbers))
 
 get_inputdata()
-category_data()
-display_demand()
+# category_data()
+#display_demand()
