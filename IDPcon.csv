@@ -1,1 +1,16 @@
-Medication,2000,Anaesthetics,3000,Analgesics,2000,Anti-allergics,3000,Anticonvulsants/antiepileptics,1000,Anticonvulsants/antiepileptics,2000,Antidotes,3000,"Medical devices, equipment",20000,Stationary,3000
+Medication,2000
+Anaesthetics,3000
+Analgesics,2000
+Anti-allergics,3000
+Anticonvulsants/antiepileptics,1000
+Antidotes,3000
+Anti-infective medicines,300
+Cardiovascular medicines,200
+Dermatological medicines,200
+Disinfectants and antiseptics,500
+Diuretics,100
+Gastrointestinal medicines,300
+"Medical devices, renewable",1000
+Guidelines for IHEK 2011 users,2
+"Medical devices, equipment",15
+Stationary,100

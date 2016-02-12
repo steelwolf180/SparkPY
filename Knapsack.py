@@ -1,5 +1,6 @@
 import csv
 
+# input data from supply kit list
 input_name = []
 input_unit = []
 input_category = []
@@ -7,7 +8,15 @@ input_weight = []
 input_valPerQty = []
 input_total_value = []
 
+#input data from IDP configuration for each category and their weight for each category
 config_category = {}
+
+# store input data to each individual category
+Medication = {}
+Anaesthetics = {}
+Analgesics = {}
+Anti_allergics = {}
+Anticonvulsants = {}
 
 
 #various weight for various supply
@@ -27,14 +36,6 @@ def read_confile(): #read from IDP camp the weight for each category
 
         for val in reader:
             config_category[str(val[0])] = int(val[1])
-            config_category[str(val[2])] = int(val[3])
-            config_category[str(val[4])] = int(val[5])
-            config_category[str(val[6])] = int(val[7])
-            config_category[str(val[8])] = int(val[9])
-            config_category[str(val[10])] = int(val[11])
-            config_category[str(val[12])] = int(val[13])
-            config_category[str(val[14])] = int(val[15])
-            config_category[str(val[16])] = int(val[17])
 
 
 def read_supplykitcsv():  # read from IDP camp supply list
@@ -51,8 +52,13 @@ def read_supplykitcsv():  # read from IDP camp supply list
             input_valPerQty.append(float(val[4]))
             input_total_value.append(float(val[5]))
 
-def category_data(): #categories the supply list data
 
+'''
+def category_data(): #categories the supply list data
+    for cat in config_category:
+        for val in range(len(input_category)):
+            if input_category[val] == cat:
+'''
 
 def knapSack(temp_tw, weight, value, numbers):
     K = [[0 for x in range(temp_tw+1)] for x in range(numbers+1)]
@@ -93,5 +99,5 @@ def display_demand():
             print("Category E:",knapSack(total_weight[i], cat5_weight, cat5_value, numbers))
 
 get_inputdata()
-# category_data()
+#category_data()
 #display_demand()
