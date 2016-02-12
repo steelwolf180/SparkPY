@@ -31,6 +31,6 @@ max_weight = 400
 solution = solve(items, max_weight)
 print("items:")
 for x in solution:
-    print(x[0])
+    print(x[0], "weight:", str(x[1]), "value:", str(x[2]))
 print("value:", total_value(solution, max_weight))
 print("weight:", sum([x[1] for x in solution]))

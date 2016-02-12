@@ -1,0 +1,49 @@
+SupplyKit.csv:
+Category |           Value Per Weight (Total value) | Weight(QTY) | Max Weight (Max QTY)
+Medicines            15,000
+Anaesthetics         15,000
+Analgesics           15,000
+Anti-allergics       15,000
+Anticonvulsants      15,000
+Antidotes            15,000
+Anti-infective       15,000
+Cardiovascular       15,000
+Dermatological       15,000
+Disinfectants        12,000
+Diuretics            15,000
+Gastrointestinal     15,000
+Renewable med device 30,000
+Guidelines           500
+Equipment med device 45,00
+Stationary           10,000
+
+
+IDP Camp Data -> HQ
+CampID
+Name
+Date
+Time
+Category                      { Category Weight     | Category Value
+Medicines
+Anaesthetics
+Analgesics
+Anti-allergics
+Anticonvulsants/antiepileptics
+Antidotes
+Anti-infective medicines
+Cardiovascular medicines
+Dermatological medicines
+Disinfectants and antiseptics
+Diuretics
+Gastrointestinal medicines
+Medical devices, renewable
+Guidelines for IHEK 2011 users
+Medical devices, equipment
+Stationary
+
+HQ
+HQ Configuration - category | Weight
+
+Knapsack Algorithim By Category
+IDP_CampID | Weight | Value
+
