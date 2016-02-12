@@ -1,15 +1,10 @@
 import csv
 
 # input data from supply kit list
-input_name = []
-input_unit = []
-input_category = []
-input_weight = []
-input_valPerQty = []
-input_total_value = []
+input_data = {}
 
 #input data from IDP configuration for each category and their weight for each category
-config_category = {}
+input_category = {}
 
 # store input data to each individual category
 medicines = {}
@@ -35,12 +30,10 @@ total_weight = []
 #data to HQ
 supply_value = {}
 
-
 # get data from csv files
 def get_inputdata():
     read_confile()
     read_supplykitcsv()
-
 
 # read from IDP camp the weight for each category
 def read_confile():
@@ -49,8 +42,7 @@ def read_confile():
         reader = csv.reader(f)
 
         for val in reader:
-            config_category[str(val[0])] = int(val[1])
-
+            input_category[str(val[0])] = int(val[1])
 
 # read from IDP camp supply list
 def read_supplykitcsv():
@@ -60,65 +52,64 @@ def read_supplykitcsv():
     with supply as f:  #gets the list of supplies from IDP supply list
         reader = csv.reader(f)
         for val in reader:
-            input_name.append(str(val[0]))
-            input_unit.append(str(val[1]))
-            input_category.append(str(val[2]))
-            input_weight.append(float(val[3]))
-            input_valPerQty.append(float(val[4]))
-            input_total_value.append(float(val[5]))
+            input_data[str(val[0])] = (str(val[1]), str(val[2]), float(val[3]), float(val[4]), float(val[5]))
 
 
 # categories the supply list data
 def category_data():
-    for val in range(len(input_category)):
-        if input_category[val] == "Medicines":
-            medicines[input_name[val]] = (input_weight[val], input_valPerQty[val])
+    for val in input_data:
+        if input_data[val][1] == "Medicines":
+            medicines[val] = (input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Anaesthetics":
-            anaesthetics[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Anaesthetics":
+            anaesthetics[val] = (input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Analgesics":
-            analgesics[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Analgesics":
+            analgesics[val] = (input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Anti-allergics":
-            anti_allergics[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Anti-allergics":
+            anti_allergics[val] = (input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Anticonvulsants/antiepileptics":
-            anticonvulsants[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Anticonvulsants/antiepileptics":
+            anticonvulsants[val] = (input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Antidotes":
-            antidotes[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Antidotes":
+            antidotes[val] = (input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Anti-infective medicines":
-            anti_infective[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Anti-infective medicines":
+            anti_infective[val] = (input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Cardiovascular medicines":
-            cardiovascular[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Cardiovascular medicines":
+            cardiovascular[val] = (input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Dermatological medicines":
-            dermatological[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Dermatological medicines":
+            dermatological[val] = (input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Disinfectants and antiseptics":
-            disinfectants_and_antiseptics[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Disinfectants and antiseptics":
+            disinfectants_and_antiseptics[val] = (
+            input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Diuretics":
-            diuretics[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Diuretics":
+            diuretics[val] = (input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Gastrointestinal medicines":
-            gastrointestinal[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Gastrointestinal medicines":
+            gastrointestinal[val] = (input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Medical devices, renewable":
-            renewable_medical_device[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Medical devices, renewable":
+            renewable_medical_device[val] = (
+            input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Guidelines for IHEK 2011 users":
-            guidelines[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Guidelines for IHEK 2011 users":
+            guidelines[val] = (input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Medical devices, equipment":
-            equipment_medical_device[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Medical devices, equipment":
+            equipment_medical_device[val] = (
+            input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
-        elif input_category[val] == "Stationary":
-            stationary[input_name[val]] = (input_weight[val], input_valPerQty[val])
+        elif input_data[val][1] == "Stationary":
+            stationary[val] = (input_data[val][0], input_data[val][2], input_data[val][3], input_data[val][4])
 
+    return
 
 #knapsack algo
 def knapSack(temp_tw, weight, value, numbers):
@@ -139,12 +130,13 @@ def knapSack(temp_tw, weight, value, numbers):
 
 #displays demand for each category of the supply list
 def display_demand():
-
-    for i in range(5):
+    for i in range(len(input_category)):
         if i == 0:
-            numbers = len(cat1_value)
-            print("Category A:", knapSack(total_weight[i], cat1_weight, cat1_value, numbers))
+            numbers = len(medicines)
+            print(input_category[i], knapSack(input_category[i][0], cat1_weight, cat1_value, numbers))
 
+
+'''
         elif i == 1:
             numbers = len(cat2_value)
             print("Category B:",knapSack(total_weight[i], cat2_weight, cat2_value, numbers))
@@ -160,7 +152,7 @@ def display_demand():
         elif i == 4:
             numbers = len(cat5_value)
             print("Category E:",knapSack(total_weight[i], cat5_weight, cat5_value, numbers))
-
+'''
 get_inputdata()
 category_data()
-#display_demand()
+display_demand()
