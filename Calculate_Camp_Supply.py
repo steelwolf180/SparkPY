@@ -1,10 +1,17 @@
-import csv
+import csv  # imports the csv module
+import os  # imports the os module
 
 # input data from supply kit list
 input_data = {}
 
 #input data from IDP configuration for each category and their weight for each category
 input_category = {}
+
+# used for knapsack algo
+cache = {}
+
+# data to send to HQ processing
+IDP_CampID = {}
 
 # store input data to each individual category
 medicines = {}
@@ -24,12 +31,6 @@ guidelines = {}
 equipment_medical_device = {}
 stationary = {}
 
-# used for knapsack algo
-cache = {}
-
-# data to send to HQ processing
-IDP_CampID = {}
-
 
 # get data from csv files
 def get_inputdata():
@@ -39,7 +40,7 @@ def get_inputdata():
 
 # read from IDP camp the weight for each category
 def read_confile():
-    conf_data = open('IDPcon.csv', "rt", encoding="utf-8")
+    conf_data = open('IDPcon.csv', "rt")
     # gets the list of weight from IDPcon.csv
     with conf_data as f:
         reader = csv.reader(f)
@@ -51,7 +52,7 @@ def read_confile():
 # read from IDP camp supply list
 def read_supplykit():
     # open csv file
-    supply = open('SupplyKit.csv', "rt", encoding="utf-8")
+    supply = open('SupplyKit.csv', "rt")
     item_weight = 0
     item_value = 0
     with supply as f:  #gets the list of supplies from IDP supply list
@@ -148,55 +149,70 @@ def create_tuple_list(lst):
 # sending each category for processing
 def process_category():
     temp_tpl = ()
-
     for i in input_category:
         if i == "Medicines":
             temp_tpl = create_tuple_list(medicines)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Anaesthetics":
             temp_tpl = create_tuple_list(anaesthetics)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Analgesics":
             temp_tpl = create_tuple_list(analgesics)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Anti-allergics":
             temp_tpl = create_tuple_list(anti_allergics)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Anticonvulsants/antiepileptics":
             temp_tpl = create_tuple_list(anticonvulsants)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Antidotes":
             temp_tpl = create_tuple_list(antidotes)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Anti-infective medicines":
             temp_tpl = create_tuple_list(anti_infective)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Cardiovascular medicines":
             temp_tpl = create_tuple_list(cardiovascular)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Dermatological medicines":
             temp_tpl = create_tuple_list(dermatological)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Disinfectants and antiseptics":
             temp_tpl = create_tuple_list(disinfectants_and_antiseptics)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Diuretics":
             temp_tpl = create_tuple_list(diuretics)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Gastrointestinal medicines":
             temp_tpl = create_tuple_list(gastrointestinal)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Medical devices, renewable":
             temp_tpl = create_tuple_list(renewable_medical_device)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Guidelines for IHEK 2011 users":
             temp_tpl = create_tuple_list(guidelines)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Medical devices, equipment":
             temp_tpl = create_tuple_list(equipment_medical_device)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Stationary":
             temp_tpl = create_tuple_list(stationary)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
 
 
@@ -221,7 +237,43 @@ def solve(items, max_weight):
         cache[(items, max_weight)] = answer
     return cache[(items, max_weight)]
 
+
+def display_knapsack_category(tuple_lst, maxweight, cat_name):
+    solution = solve(tuple_lst, maxweight)
+    cat_weight = sum([x[1] for x in solution])
+    cat_value = total_value(solution, maxweight)
+
+    print("Category", cat_name)
+    print("items:")
+    for x in solution:
+        print(x[0], "weight:", str(x[1]), "value:", str(x[2]))
+    print("Calculated value:", cat_value)
+    print("Calculated weight:", cat_weight)
+    print("Max weight for category:", maxweight)
+    print('===================================================================================================')
+
+    IDP_CampID[cat_name] = (cat_weight, cat_value, maxweight)
+
+
+def export_category():
+    # file location to write to csv file
+    currentPath = os.getcwd()
+    csv_file = currentPath + "/IDP_Supply_List.csv"
+    header = []  # declare header for matrix
+
+    # prep the header before writing to csv
+    header = ['Category Name', 'Calculated Weight', 'Calculated Value', 'Maximum Weight']
+
+    # write file to csv
+    with open(csv_file, 'w') as f:
+        writer = csv.writer(f)
+        writer.writerow(header)
+        for i in sorted(IDP_CampID):
+            writer.writerow((i, IDP_CampID[i][0], IDP_CampID[i][1], IDP_CampID[i][2]))
+
+
 get_inputdata()
 category_data()
 create_tuple_list(stationary)
 process_category()
+export_category()
