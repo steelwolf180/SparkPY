@@ -5,7 +5,7 @@ cache = {}
 def solve(items, max_weight):
     if not items:
         return ()
-    if (items,max_weight) not in cache:
+    if (items, max_weight) not in cache:
         head = items[0]
         tail = items[1:]
         include = (head,) + solve(tail, max_weight - head[1])
@@ -14,8 +14,8 @@ def solve(items, max_weight):
             answer = include
         else:
             answer = dont_include
-        cache[(items,max_weight)] = answer
-    return cache[(items,max_weight)]
+        cache[(items, max_weight)] = answer
+    return cache[(items, max_weight)]
 
 items = (
     ("map", 9, 150), ("compass", 13, 35), ("water", 153, 200), ("sandwich", 50, 160),
