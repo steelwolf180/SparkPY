@@ -148,55 +148,70 @@ def create_tuple_list(lst):
 # sending each category for processing
 def process_category():
     temp_tpl = ()
-
     for i in input_category:
         if i == "Medicines":
             temp_tpl = create_tuple_list(medicines)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Anaesthetics":
             temp_tpl = create_tuple_list(anaesthetics)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Analgesics":
             temp_tpl = create_tuple_list(analgesics)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Anti-allergics":
             temp_tpl = create_tuple_list(anti_allergics)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Anticonvulsants/antiepileptics":
             temp_tpl = create_tuple_list(anticonvulsants)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Antidotes":
             temp_tpl = create_tuple_list(antidotes)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Anti-infective medicines":
             temp_tpl = create_tuple_list(anti_infective)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Cardiovascular medicines":
             temp_tpl = create_tuple_list(cardiovascular)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Dermatological medicines":
             temp_tpl = create_tuple_list(dermatological)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Disinfectants and antiseptics":
             temp_tpl = create_tuple_list(disinfectants_and_antiseptics)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Diuretics":
             temp_tpl = create_tuple_list(diuretics)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Gastrointestinal medicines":
             temp_tpl = create_tuple_list(gastrointestinal)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Medical devices, renewable":
             temp_tpl = create_tuple_list(renewable_medical_device)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Guidelines for IHEK 2011 users":
             temp_tpl = create_tuple_list(guidelines)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Medical devices, equipment":
             temp_tpl = create_tuple_list(equipment_medical_device)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
         elif i == "Stationary":
             temp_tpl = create_tuple_list(stationary)
+            display_knapsack_category(temp_tpl, input_category[i], i)
             temp_tpl = ()
 
 
@@ -220,6 +235,18 @@ def solve(items, max_weight):
             answer = dont_include
         cache[(items, max_weight)] = answer
     return cache[(items, max_weight)]
+
+
+def display_knapsack_category(tuple_lst, maxweight, cat_name):
+    solution = solve(tuple_lst, maxweight)
+    print("Category", cat_name)
+    print("items:")
+    for x in solution:
+        print(x[0], "weight:", str(x[1]), "value:", str(x[2]))
+    print("Calculated value:", total_value(solution, maxweight))
+    print("Calculated weight:", sum([x[1] for x in solution]))
+    print("Max weight for category:", maxweight)
+    print('===================================================================================================')
 
 get_inputdata()
 category_data()
