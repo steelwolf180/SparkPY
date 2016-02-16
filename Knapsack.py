@@ -152,7 +152,6 @@ def process_category():
     for i in input_category:
         if i == "Medicines":
             temp_tpl = create_tuple_list(medicines)
-
             temp_tpl = ()
         elif i == "Anaesthetics":
             temp_tpl = create_tuple_list(anaesthetics)
