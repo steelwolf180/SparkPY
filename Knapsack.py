@@ -89,52 +89,52 @@ def calculate_total_value(value, weight):
 def category_data():
     for val in input_data:
         if input_data[val][0] == "Medicines":
-            medicines[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            medicines[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Anaesthetics":
-            anaesthetics[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            anaesthetics[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Analgesics":
-            analgesics[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            analgesics[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Anti-allergics":
-            anti_allergics[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            anti_allergics[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Anticonvulsants/antiepileptics":
-            anticonvulsants[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            anticonvulsants[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Antidotes":
-            antidotes[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            antidotes[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Anti-infective medicines":
-            anti_infective[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            anti_infective[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Cardiovascular medicines":
-            cardiovascular[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            cardiovascular[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Dermatological medicines":
-            dermatological[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            dermatological[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Disinfectants and antiseptics":
-            disinfectants_and_antiseptics[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            disinfectants_and_antiseptics[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Diuretics":
-            diuretics[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            diuretics[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Gastrointestinal medicines":
-            gastrointestinal[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            gastrointestinal[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Medical devices, renewable":
-            renewable_medical_device[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            renewable_medical_device[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Guidelines for IHEK 2011 users":
-            guidelines[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            guidelines[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Medical devices, equipment":
-            equipment_medical_device[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            equipment_medical_device[val] = (val, input_data[val][1], input_data[val][2])
 
         elif input_data[val][0] == "Stationary":
-            stationary[val] = (input_data[val][1], input_data[val][2], input_data[val][3])
+            stationary[val] = (val, input_data[val][1], input_data[val][2])
 
 
 # convert into tuple list from each individual category dictionary for processing
@@ -152,6 +152,7 @@ def process_category():
     for i in input_category:
         if i == "Medicines":
             temp_tpl = create_tuple_list(medicines)
+
             temp_tpl = ()
         elif i == "Anaesthetics":
             temp_tpl = create_tuple_list(anaesthetics)
@@ -199,7 +200,29 @@ def process_category():
             temp_tpl = create_tuple_list(stationary)
             temp_tpl = ()
 
+
+# gets total value for the category
+def total_value(items, max_weight):
+    return sum([x[2] for x in items]) if sum([x[1] for x in items]) < max_weight else 0
+
+
+# knapsack algo for each category
+def solve(items, max_weight):
+    if not items:
+        return ()
+    if (items, max_weight) not in cache:
+        head = items[0]
+        tail = items[1:]
+        include = (head,) + solve(tail, max_weight - head[1])
+        dont_include = solve(tail, max_weight)
+        if total_value(include, max_weight) > total_value(dont_include, max_weight):
+            answer = include
+        else:
+            answer = dont_include
+        cache[(items, max_weight)] = answer
+    return cache[(items, max_weight)]
+
 get_inputdata()
 category_data()
 create_tuple_list(stationary)
-# process_category()
+process_category()
