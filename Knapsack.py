@@ -1,4 +1,5 @@
-import csv
+import csv  # imports the csv module
+import os  # imports the os module
 
 # input data from supply kit list
 input_data = {}
@@ -29,7 +30,6 @@ cache = {}
 
 # data to send to HQ processing
 IDP_CampID = {}
-
 
 # get data from csv files
 def get_inputdata():
@@ -239,7 +239,7 @@ def solve(items, max_weight):
 
 def display_knapsack_category(tuple_lst, maxweight, cat_name):
     solution = solve(tuple_lst, maxweight)
-    print("Category", cat_name)
+    print("Category:", cat_name)
     print("items:")
     for x in solution:
         print(x[0], "weight:", str(x[1]), "value:", str(x[2]))
@@ -247,8 +247,25 @@ def display_knapsack_category(tuple_lst, maxweight, cat_name):
     print("Calculated weight:", sum([x[1] for x in solution]))
     print("Max weight for category:", maxweight)
     print('===================================================================================================')
+    IDP_CampID[cat_name] = ((total_value(solution, maxweight)), sum([x[1] for x in solution]))
+
+
+def export_category_csv():
+    # file location to write to csv file
+    currentpath = os.getcwd()
+    csv_file = currentpath + "/IDP_CampID1.csv"
+
+    # prep the header before writing to csv
+    header = ['Category', 'Calculated Value', 'Calculated Weight']
+
+    # write file to csv
+    with open(csv_file, 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(header)
+        for cat in IDP_CampID:
+            writer.writerow((cat, IDP_CampID[cat][0], IDP_CampID[cat][1]))
 
 get_inputdata()
 category_data()
-create_tuple_list(stationary)
 process_category()
+export_category_csv()
