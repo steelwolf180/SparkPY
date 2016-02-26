@@ -8,12 +8,30 @@ IDP_Cat = {}
 # conf = SparkConf().setMaster("local")
 # sc = SparkContext(conf=conf)
 
+# input IDP camp list
 IDP_camp1 = {}
 IDP_camp2 = {}
 IDP_camp3 = {}
 IDP_camp4 = {}
 IDP_camp5 = {}
 
+# store input data to each individual category
+medicines = {}
+anaesthetics = {}
+analgesics = {}
+anti_allergics = {}
+anticonvulsants = {}
+antidotes = {}
+anti_infective = {}
+cardiovascular = {}
+dermatological = {}
+disinfectants_and_antiseptics = {}
+diuretics = {}
+gastrointestinal = {}
+renewable_medical_device = {}
+guidelines = {}
+equipment_medical_device = {}
+stationary = {}
 
 # tests if the spark module is working
 def test_spark():
@@ -90,6 +108,56 @@ def read_IDP_data():
     read_confile(IDP4)
     read_confile(IDP5)
 
+
+def catgory_data():
+    for val in (IDP_Cat):
+        if IDP_Cat[val][0] == "Medicines":
+            medicines[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif IDP_Cat[val][0] == "Anaesthetics":
+            anaesthetics[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif IDP_Cat[val][0] == "Analgesics":
+            analgesics[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif IDP_Cat[val][0] == "Anti-allergics":
+            anti_allergics[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif IDP_Cat[val][0] == "Anticonvulsants/antiepileptics":
+            anticonvulsants[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif input_data[val][0] == "Antidotes":
+            antidotes[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif input_data[val][0] == "Anti-infective medicines":
+            anti_infective[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif input_data[val][0] == "Cardiovascular medicines":
+            cardiovascular[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif input_data[val][0] == "Dermatological medicines":
+            dermatological[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif input_data[val][0] == "Disinfectants and antiseptics":
+            disinfectants_and_antiseptics[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif input_data[val][0] == "Diuretics":
+            diuretics[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif input_data[val][0] == "Gastrointestinal medicines":
+            gastrointestinal[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif input_data[val][0] == "Medical devices, renewable":
+            renewable_medical_device[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif input_data[val][0] == "Guidelines for IHEK 2011 users":
+            guidelines[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif input_data[val][0] == "Medical devices, equipment":
+            equipment_medical_device[val] = (val, input_data[val][1], input_data[val][2])
+
+        elif input_data[val][0] == "Stationary":
+            stationary[val] = (val, input_data[val][1], input_data[val][2])
 
 # test_spark()
 read_HQ_confile()
