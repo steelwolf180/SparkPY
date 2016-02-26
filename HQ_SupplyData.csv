@@ -1,0 +1,58 @@
+Anaesthetics,IDP5,53,22800
+Analgesics,IDP4,42,12600
+Anti-allergics,IDP4,78,15150
+Anti-allergics,IDP5,45,10200
+Anti-infective medicines,IDP1,42,10800
+Anti-infective medicines,IDP2,42,10800
+Anti-infective medicines,IDP3,42,10800
+Anti-infective medicines,IDP4,42,10800
+Anti-infective medicines,IDP5,42,10800
+Anticonvulsants/antiepileptics,IDP1,47,10425
+Anticonvulsants/antiepileptics,IDP2,47,10425
+Anticonvulsants/antiepileptics,IDP3,47,10425
+Anticonvulsants/antiepileptics,IDP4,111,8325
+Anticonvulsants/antiepileptics,IDP5,55,9525
+Antidotes,IDP1,7,10500
+Antidotes,IDP4,10,15000
+Cardiovascular medicines,IDP1,20,15000
+Cardiovascular medicines,IDP2,20,15000
+Cardiovascular medicines,IDP3,20,15000
+Cardiovascular medicines,IDP4,20,15000
+Cardiovascular medicines,IDP5,20,15000
+Dermatological medicines,IDP2,12,6000
+Dermatological medicines,IDP3,12,6000
+Disinfectants and antiseptics,IDP1,130,130
+Disinfectants and antiseptics,IDP2,32,32
+Disinfectants and antiseptics,IDP3,32,32
+Disinfectants and antiseptics,IDP4,59,59
+Disinfectants and antiseptics,IDP5,59,59
+Diuretics,IDP1,10,7500
+Diuretics,IDP2,10,7500
+Diuretics,IDP3,10,7500
+Diuretics,IDP4,73,12225
+Diuretics,IDP5,52,10650
+Gastrointestinal medicines,IDP1,32,9600
+Gastrointestinal medicines,IDP2,32,9600
+Gastrointestinal medicines,IDP3,32,9600
+Gastrointestinal medicines,IDP4,32,9600
+Gastrointestinal medicines,IDP5,50,9600
+Guidelines for IHEK 2011 users,IDP5,3,750
+"Medical devices, equipment",IDP1,18,170400
+"Medical devices, equipment",IDP2,18,170400
+"Medical devices, equipment",IDP3,18,170400
+"Medical devices, equipment",IDP4,66,184050
+"Medical devices, renewable",IDP1,68,102700
+"Medical devices, renewable",IDP2,68,102700
+"Medical devices, renewable",IDP3,68,102700
+"Medical devices, renewable",IDP4,68,102700
+"Medical devices, renewable",IDP5,68,102700
+Medicines,IDP1,188,100287
+Medicines,IDP2,188,100287
+Medicines,IDP3,188,100287
+Medicines,IDP4,199,109100
+Medicines,IDP5,184,128755
+Stationary,IDP1,159,8270
+Stationary,IDP2,305,8520
+Stationary,IDP3,305,8520
+Stationary,IDP4,82,38715
+Stationary,IDP5,60,38275
