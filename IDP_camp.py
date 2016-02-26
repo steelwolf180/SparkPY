@@ -1,10 +1,11 @@
 import csv  # imports the csv module
 import os  # imports the os module
+import sys  # imports the sys module
 
 # input data from supply kit list
 input_data = {}
 
-#input data from IDP configuration for each category and their weight for each category
+# input data from IDP configuration for each category and their weight for each category
 input_category = {}
 
 # used for knapsack algo
@@ -31,6 +32,17 @@ guidelines = {}
 equipment_medical_device = {}
 stationary = {}
 
+# tests if the spark module is working
+def test_spark():
+    try:
+        from pyspark import SparkContext
+        from pyspark import SparkConf
+        print("Successfully imported Spark Modules")
+
+    except ImportError as e:
+        print ("Can not import Spark Modules", e)
+        sys.exit(1)
+
 
 # get data from csv files
 def get_inputdata():
@@ -40,22 +52,24 @@ def get_inputdata():
 
 # read from IDP camp the weight for each category
 def read_confile():
-    conf_data = open('IDPcon.csv', "rt")
+    idp_camp_conf = sys.argv[1]
+    conf_data = open(idp_camp_conf, "rt")
     # gets the list of weight from IDPcon.csv
     with conf_data as f:
         reader = csv.reader(f)
         for val in reader:
-            #input category and total weight limit for the category
+            # input category and total weight limit for the category
             input_category[str(val[0])] = int(val[1])
 
 
 # read from IDP camp supply list
 def read_supplykit():
+    supply_kit_conf = sys.argv[2]
     # open csv file
-    supply = open('SupplyKit.csv', "rt")
+    supply = open(supply_kit_conf, "rt")
     item_weight = 0
     item_value = 0
-    with supply as f:  #gets the list of supplies from IDP supply list
+    with supply as f:  # gets the list of supplies from IDP supply list
         reader = csv.reader(f)
         for val in reader:
             # check max weight and item value for the item
@@ -238,6 +252,7 @@ def solve(items, max_weight):
     return cache[(items, max_weight)]
 
 
+# display the result of knapsack algorithim for each individual category
 def display_knapsack_category(tuple_lst, maxweight, cat_name):
     solution = solve(tuple_lst, maxweight)
     cat_weight = sum([x[1] for x in solution])
@@ -256,24 +271,20 @@ def display_knapsack_category(tuple_lst, maxweight, cat_name):
 
 
 def export_category():
+    output_file = sys.argv[3]
     # file location to write to csv file
     currentPath = os.getcwd()
-    csv_file = currentPath + "/IDP_Supply_List.csv"
-    header = []  # declare header for matrix
-
-    # prep the header before writing to csv
-    header = ['Category Name', 'Calculated Weight', 'Calculated Value', 'Maximum Weight']
+    csv_file = currentPath + "/" + output_file
 
     # write file to csv
     with open(csv_file, 'w') as f:
         writer = csv.writer(f)
-        writer.writerow(header)
         for i in sorted(IDP_CampID):
             writer.writerow((i, IDP_CampID[i][0], IDP_CampID[i][1], IDP_CampID[i][2]))
 
 
+# test_spark()
 get_inputdata()
 category_data()
-create_tuple_list(stationary)
 process_category()
 export_category()
