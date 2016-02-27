@@ -368,6 +368,8 @@ def export_category():
         writer = csv.writer(f)
         for k, v in sorted(HQ_cat_data):
             writer.writerow((k, v, HQ_cat_data[k, v][1], HQ_cat_data[k, v][2]))
+
+
 # test_spark()
 read_HQ_confile()
 read_IDP_data()
