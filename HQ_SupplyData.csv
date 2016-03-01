@@ -1,0 +1,53 @@
+Anaesthetics,IDP1,36,14400
+Anaesthetics,IDP2,24,14100
+Anaesthetics,IDP5,12,7200
+Analgesics,IDP1,42,12600
+Analgesics,IDP2,2,600
+Anti-allergics,IDP1,54,9900
+Anti-allergics,IDP2,12,3600
+Anti-allergics,IDP4,67,11850
+Anti-infective medicines,IDP1,56,9360
+Anti-infective medicines,IDP2,37,9815
+Anti-infective medicines,IDP3,22,6600
+Anti-infective medicines,IDP4,68,14100
+Anti-infective medicines,IDP5,60,10800
+Anticonvulsants/antiepileptics,IDP1,24,5400
+Anticonvulsants/antiepileptics,IDP2,22,8250
+Anticonvulsants/antiepileptics,IDP3,13,4515
+Anticonvulsants/antiepileptics,IDP4,35,13125
+Anticonvulsants/antiepileptics,IDP5,8,3000
+Antidotes,IDP2,4,6000
+Antidotes,IDP4,6,9000
+Antidotes,IDP5,9,13500
+Cardiovascular medicines,IDP1,2,30
+Cardiovascular medicines,IDP2,9,135
+Cardiovascular medicines,IDP4,15,8310
+Dermatological medicines,IDP1,24,12000
+Disinfectants and antiseptics,IDP2,22,22
+Diuretics,IDP1,4,3000
+Diuretics,IDP2,11,8250
+Diuretics,IDP3,2,1500
+Diuretics,IDP4,23,9150
+Gastrointestinal medicines,IDP1,24,7200
+Gastrointestinal medicines,IDP4,44,13200
+Guidelines for IHEK 2011 users,IDP1,3,750
+Guidelines for IHEK 2011 users,IDP4,2,500
+"Medical devices, equipment",IDP1,30,175800
+"Medical devices, equipment",IDP2,5,225000
+"Medical devices, equipment",IDP3,37,105750
+"Medical devices, equipment",IDP4,40,150750
+"Medical devices, renewable",IDP1,68,130800
+"Medical devices, renewable",IDP2,68,80700
+"Medical devices, renewable",IDP3,68,35400
+"Medical devices, renewable",IDP4,68,126200
+"Medical devices, renewable",IDP5,64,21600
+Medicines,IDP1,140,47338
+Medicines,IDP2,196,38900
+Medicines,IDP3,168,46114
+Medicines,IDP4,197,39675
+Medicines,IDP5,178,79775
+Stationary,IDP1,2,2000
+Stationary,IDP2,24,5440
+Stationary,IDP3,37,7660
+Stationary,IDP4,269,16220
+Stationary,IDP5,236,19480
