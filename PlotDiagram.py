@@ -22,6 +22,23 @@ guidelines = {}
 equipment_medical_device = {}
 stationary = {}
 
+for i in ['IDP1', 'IDP2', 'IDP3', 'IDP4', 'IDP5']:
+    medicines[i] = (0, 0)
+    anaesthetics[i] = (0, 0)
+    analgesics[i] = (0, 0)
+    anti_allergics[i] = (0, 0)
+    anticonvulsants[i] = (0, 0)
+    antidotes[i] = (0, 0)
+    anti_infective[i] = (0, 0)
+    cardiovascular[i] = (0, 0)
+    dermatological[i] = (0, 0)
+    disinfectants_and_antiseptics[i] = (0, 0)
+    diuretics[i] = (0, 0)
+    gastrointestinal[i] = (0, 0)
+    renewable_medical_device[i] = (0, 0)
+    guidelines[i] = (0, 0)
+    equipment_medical_device[i] = (0, 0)
+    stationary[i] = (0, 0)
 
 def import_supply():
     conf_data = open("HQ_SupplyData.csv", "rt")
@@ -85,52 +102,26 @@ def import_category():
             categoryData[val[0]] = (val[1], val[2], val[3])
 
 
-def display_supply():
-    trace1 = go.Bar(
-        x=['dog', 'cat', 'mouse'],
-        y=[3, 7, 8],
-        name='SF Zoo'
-    )
-    trace2 = go.Bar(
-        x=['dog', 'cat', 'mouse'],
-        y=[7, 11, 12],
-        name='LA Zoo'
-    )
-    trace3 = go.Bar(
-        x=['dog', 'cat', 'mouse'],
-        y=[5, 6, 9],
-        name='SF Zoo'
-    )
-    data = [trace1, trace2, trace3]
-    layout = go.Layout(
-        barmode='stack'
-    )
-    fig = go.Figure(data=data, layout=layout)
-    plot_url = py.plot(fig, filename='SupplyData.html')
-
-
 def display_category():
     catlst_weight = []
     catlst_value = []
     catlst_maxweight = []
+    x = ['Medicines', 'Anaesthetics', 'Analgesics', 'Anti-Allergics', 'Anti-Convulsants', 'Antidotes',
+         'Anti-Infective', 'Cardiovascular', 'Dermatological', 'Disinfectants & Anti-Septics', 'Diuretics',
+         'Gastrointestinal', 'Renewable Device', 'Guidelines', 'Equipment', 'Stationary']
 
     for i in categoryData.values():
         catlst_weight.append(i[0])
-        catlst_value.append(i[1])
         catlst_maxweight.append(i[2])
 
     trace0 = go.Bar(
-        x=['Medicines', 'Anaesthetics', 'Analgesics', 'Anti-Allergics', 'Anti-Convulsants', 'Antidotes',
-           'Anti-Infective', 'Cardiovascular', 'Dermatological', 'Disinfectants & Anti-Septics', 'Diuretics',
-           'Gastrointestinal', 'Renewable Device', 'Guidelines', 'Equipment', 'Stationary'],
+        x=x,
         y=catlst_weight,
         name='Calculated'
     )
-
+    y = catlst_maxweight
     trace1 = go.Bar(
-        x=['Medicines', 'Anaesthetics', 'Analgesics', 'Anti-Allergics', 'Anti-Convulsants', 'Antidotes',
-           'Anti-Infective', 'Cardiovascular', 'Dermatological', 'Disinfectants & Anti-Septics', 'Diuretics',
-           'Gastrointestinal', 'Renewable Device', 'Guidelines', 'Equipment', 'Stationary'],
+        x=x,
         y=catlst_maxweight,
         name='Maxinmum'
     )
@@ -145,7 +136,39 @@ def display_category():
     plot_url = py.plot(fig, filename='CategoryData.html')
 
 
+def display_totalvalue():
+    catlst_value = []
+    x = ['Medicines', 'Anaesthetics', 'Analgesics', 'Anti-Allergics', 'Anti-Convulsants', 'Antidotes',
+         'Anti-Infective', 'Cardiovascular', 'Dermatological', 'Disinfectants & Anti-Septics', 'Diuretics',
+         'Gastrointestinal', 'Renewable Device', 'Guidelines', 'Equipment', 'Stationary']
+    for i in categoryData:
+        catlst_value.append(int(categoryData[i][1]))
+
+    y = catlst_value
+    trace = go.Bar(
+        x=x,
+        y=y,
+        name='Total Value'
+    )
+    data = [trace]
+    layout = go.Layout(
+        title='Calculate Total Value For Each Category',
+        width=1000,
+        height=600,
+        annotations=[
+            dict(
+                x=xi,
+                y=yi,
+                text=str(yi),
+                xanchor='center',
+                yanchor='bottom',
+                showarrow=False,
+            ) for xi, yi in zip(x, y)]
+    )
+    fig = go.Figure(data=data, layout=layout)
+    plot_url = py.plot(fig, filename='CategoryTotalValue.html')
+
 import_supply()
 import_category()
 display_category()
-#display_supply()
+display_totalvalue()
