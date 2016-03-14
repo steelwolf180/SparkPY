@@ -519,37 +519,6 @@ def display_hq_demand():
     fig = go.Figure(data=data, layout=layout)
     plot_url = py.plot(fig, filename='HQDemandData.html')
 
-def display_hq_supply():
-    max_weight = []
-    x = sorted(categoryData)
-
-    for index in x:
-        max_weight.append(categoryData[index][2])
-
-    trace0 = go.Bar(
-        x=x,
-        y=max_weight,
-        name='Supply'
-    )
-    data = [trace0]
-    layout = go.Layout(
-        title='Amount of Supplies For Each Category In HQ',
-        barmode='group',
-        width=1000,
-        height=600,
-        annotations=[
-            dict(
-                x=xi,
-                y=yi,
-                text=str(yi),
-                xanchor='center',
-                yanchor='bottom',
-                showarrow=False,
-            ) for xi, yi in zip(x, max_weight)]
-    )
-    fig = go.Figure(data=data, layout=layout)
-    plot_url = py.plot(fig, filename='HQSupplyData.html')
-
 generate_category_data()
 import_supply()
 import_category()
@@ -557,5 +526,4 @@ display_category()
 display_total_value()
 display_supply_value()
 display_supply_weight()
-display_hq_supply()
 display_hq_demand()
