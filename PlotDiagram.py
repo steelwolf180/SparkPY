@@ -64,7 +64,7 @@ def import_supply():
                 anticonvulsants[val[1]] = (val[2], val[3])
 
             elif val[0] == "Antidotes":
-                diuretics[val[1]] = (val[2], val[3])
+                antidotes[val[1]] = (val[2], val[3])
 
             elif val[0] == "Anti-infective medicines":
                 anti_infective[val[1]] = (val[2], val[3])

@@ -1,16 +1,16 @@
-Anaesthetics,74,29400,100
-Analgesics,12,3600,68
-Anti-allergics,67,11850,80
-Anti-infective medicines,68,14100,71
-Anticonvulsants/antiepileptics,35,13125,120
-Antidotes,6,9000,79
-Cardiovascular medicines,15,8310,23
-Dermatological medicines,12,6000,79
-Disinfectants and antiseptics,0,0,300
-Diuretics,23,9150,79
-Gastrointestinal medicines,44,13200,57
-Guidelines for IHEK 2011 users,2,500,12
-"Medical devices, equipment",40,150750,1100
-"Medical devices, renewable",68,126200,69
-Medicines,197,39675,200
-Stationary,269,16220,320
+Anaesthetics,74,29400,75
+Analgesics,12,3600,50
+Anti-allergics,67,11850,150
+Anti-infective medicines,3209,48018,8750
+Anticonvulsants/antiepileptics,415,26325,1240
+Antidotes,6,9000,20
+Cardiovascular medicines,257,11940,2020
+Dermatological medicines,12,6000,30
+Disinfectants and antiseptics,8750,8750,12000
+Diuretics,23,9150,220
+Gastrointestinal medicines,66,13860,550
+Guidelines for IHEK 2011 users,2,500,6
+"Medical devices, equipment",40,150750,134
+"Medical devices, renewable",2671,458370,11533
+Medicines,2916,67294,12484
+Stationary,1522,22485,3024
